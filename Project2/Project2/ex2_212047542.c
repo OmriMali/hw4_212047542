@@ -23,7 +23,17 @@ double perimeter(const Triangle* t) {
 
 // Function to calculate the area of a triangle in 3D 
 double area(const Triangle* t) {
-		return (t->p.x)*(t->q.x) + (t->p.y)*(t->q.y) + (t->p.z)*(t->q.z);
+	double v1_x, v1_y, v1_z, v2_x, v2_y, v2_z, v_x, v_y, v_z;
+	v1_x = (t->p.x) - (t->r.x);
+	v1_y = (t->p.y) - (t->r.y);
+	v1_z = (t->p.z) - (t->r.z);
+	v2_x = (t->q.x) - (t->r.x);
+	v2_y = (t->q.y) - (t->r.y);
+	v2_z = (t->q.z) - (t->r.z);
+	v_x = (v1_y*v2_z - v1_z * v2_y);
+	v_y = -(v1_z*v2_z - v1_z * v2_x);
+	v_z = v1_x * v2_y - v1_y * v2_x;
+	return sqrt(v_x*v_x + v_y * v_y + v_z * v_z);
 }
 
 int main() {
@@ -44,8 +54,8 @@ int main() {
 	perimeter1 = perimeter(t);
 	area1 = area(t);
 	// Print the results
-	printf("Perimeter: %.6f\n", perimeter1);
-	printf("Area: %.6f\n", area1);
+	printf("Perimeter: %lf\n", perimeter1);
+	printf("Area: %lf\n", area1);
 
 	return 0;
 }
