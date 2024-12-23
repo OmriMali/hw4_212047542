@@ -32,7 +32,7 @@ Student* createStudent(int ID, const char* name, int age, float GPA) {
 // Function to create a linked list of students
 Student* createStudentList() {
 	Student *list = NULL, *stu = NULL;
-	int i, num, ID, age,flag=0;
+	int i, num, ID, age;
 	char name[50];
 	float GPA;
 	printf("Enter number of students: ");
